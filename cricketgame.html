@@ -5,47 +5,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
-  <title>Cricket Game</title>
-  <style>
-    body {
-      text-align: center;
-      font-family: "Oxygen", sans-serif;
-    }
-    .head{
-      color: rgb(255, 255, 255);
-      background-color: black;
-    }
-    .sub{
-      color: green;
-      background-color: rgba(137, 100, 88, 0.34);
-
-    }
-    .myimages{
-      height: 75px;
-    }
-    .btn{
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      margin: 10px;
-    }
-    .resetbtn{
-      background-color: red;
-      color: white;
-      border-radius: 10px;
-      padding: 10px;
-    }
-    h2{
-      color: blue;
-    }
-    .score{
-      color: green;
-      background-color: rgba(137, 100, 88, 0.34);
-      width: 100px;
-      margin: auto ;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
+<title>Cricket Game</title>
 </head>
 
 <body>
@@ -68,91 +29,8 @@
   }
   showResult();
   ">Reset</button>
-  <script>
+  <script src="script.js">
    
-    // understanding 
-    // score object will be created when it is undefined and it is parsing when it when it is created 
-    // when game resets no function is called only program runs when any button clicked it will show score in local storage
-    //when game resets it will again create the object score as it is undefined and use that score object stored in local storage and show score accordingy
-
-    let score = JSON.parse(localStorage.getItem('Score')) || {
-      win: 0,
-      lost: 0,
-      tie: 0,
-    }
-    function generateComputerChoice() {
-      let randomNumber = Math.random() * 3;
-      if (randomNumber <= 1) {
-        return 'Bat';
-      } else if (randomNumber <= 2) {
-        return 'Ball';
-      } else {
-        return 'Stump';
-      }
-    }
-
-    function getResult(userMove, computerMove) {
-      if (userMove === 'Bat') {
-        if (computerMove === 'Ball') {
-          score.win++;
-          return 'User won.';
-        } else if (computerMove === 'Bat') {
-          score.tie++;
-          return `It's a tie`;
-        } else if (computerMove === 'Stump') {
-          score.lost++;
-          return 'Computer has won';
-        }
-      } else if (userMove === 'Ball') {
-        if (computerMove === 'Ball') {
-          score.tie++;
-          return `It's a tie`;
-        } else if (computerMove === 'Bat') {
-          score.lost++;
-          return 'Computer has won';
-        } else if (computerMove === 'Stump') {
-          score.win++;
-          return 'User won.';
-        }
-      } else {
-        if (computerMove === 'Ball') {
-          score.lost++;
-          return 'Computer has won';
-        } else if (computerMove === 'Bat') {
-          score.win++;
-          return 'User won.';
-        } else if (computerMove === 'Stump') {
-          score.tie++;
-          return `It's a tie`;
-        }
-      }
-    }
-
-    function showResult(userMove, computerMove, result) {
-      if(userMove == undefined || computerMove==undefined || result==undefined){
-        document.querySelector('#myscore').innerText= 
-        document.querySelector('#myscore').innerText= ` Score Reset Successfully 
-        Wins:${score.win}
-Lost:${score.lost}
-Ties:${score.tie}
-`
-      }
-      else{
-      document.querySelector('#myscore').innerText=`You have chosen ${userMove}. Computer choice is ${computerMove} and ${result}
-      Score
-Wins:${score.win}
-Lost:${score.lost}
-Ties:${score.tie}
-`
-localStorage.setItem('Score', JSON.stringify(score));
-      }
-    }
-
-    function playGame(userMove) {
-      let computerChoice = generateComputerChoice();
-      let resultMsg = getResult(userMove, computerChoice);
-      showResult(userMove, computerChoice, resultMsg);
-    }
   </script>
 </body>
 
