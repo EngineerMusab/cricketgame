@@ -2,20 +2,65 @@
 <html lang="en">
 
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
   <title>Cricket Game</title>
   <style>
     body {
       text-align: center;
+      font-family: "Oxygen", sans-serif;
     }
+    .head{
+      color: rgb(255, 255, 255);
+      background-color: black;
+    }
+    .sub{
+      color: green;
+      background-color: rgba(137, 100, 88, 0.34);
+
+    }
+    .myimages{
+      height: 75px;
+    }
+    .btn{
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      margin: 10px;
+    }
+    .resetbtn{
+      background-color: red;
+      color: white;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    h2{
+      color: blue;
+    }
+    .score{
+      color: green;
+      background-color: rgba(137, 100, 88, 0.34);
+      width: 100px;
+      margin: auto ;
+    }
+
   </style>
 </head>
 
 <body>
-  <h1>Bat Ball Stump Game</h1>
-  <button onclick="playGame('Bat')">Bat</button>
-  <button onclick="playGame('Ball')">Ball</button>
-  <button onclick="playGame('Stump')">Stump</button>
-  <button onclick="localStorage.clear()
+  <h1 class="head">Bat Ball Stump Game</h1>
+  <h2 class="sub">Choose your move</h2>
+  <button class="btn" onclick="playGame('Bat')"><img src="/cricketgame/images/bat.png" alt="Bat" class="myimages"></button>
+  <button  class="btn" onclick="playGame('Ball')"><img src="/cricketgame/images/ball.png" alt="Ball"class="myimages" ></button>
+  <button class="btn" onclick="playGame('Stump')"><img src="/cricketgame/images/stump.png" alt="Stump" class="myimages"></button>
+
+  <h1 class="score">
+    Score
+  </h1>
+  <h2 id="myscore">
+  </h2>
+  <button  class="resetbtn" onclick="localStorage.clear()
   score={
     win: 0,
       lost: 0,
@@ -23,12 +68,6 @@
   }
   showResult();
   ">Reset</button>
-  <h1>
-    Score
-  </h1>
-  <h2 id="myscore">
-  </h2>
-
   <script>
    
     // understanding 
