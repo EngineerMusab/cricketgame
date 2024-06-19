@@ -1,0 +1,37 @@
+body {
+    text-align: center;
+    font-family: "Oxygen", sans-serif;
+  }
+  .head{
+    color: rgb(255, 255, 255);
+    background-color: black;
+  }
+  .sub{
+    color: green;
+    background-color: rgba(137, 100, 88, 0.34);
+
+  }
+  .myimages{
+    height: 75px;
+  }
+  .btn{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+  }
+  .resetbtn{
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  h2{
+    color: blue;
+  }
+  .score{
+    color: green;
+    background-color: rgba(137, 100, 88, 0.34);
+    width: 100px;
+    margin: auto ;
+  }
